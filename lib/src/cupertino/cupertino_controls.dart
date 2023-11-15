@@ -82,7 +82,7 @@ class _CupertinoControlsState extends State<CupertinoControls> with SingleTicker
     final iconColor = widget.iconColor;
     final orientation = MediaQuery.of(context).orientation;
     final barHeight = orientation == Orientation.portrait ? 30.0 : 47.0;
-    final buttonPadding = orientation == Orientation.portrait ? kToolbarHeight : 24.0;
+    final buttonPadding = orientation == Orientation.portrait ? 16.0 : 24.0;
 
     return MouseRegion(
       onHover: (_) => _cancelAndRestartTimer(),
@@ -591,32 +591,35 @@ class _CupertinoControlsState extends State<CupertinoControls> with SingleTicker
     double barHeight,
     double buttonPadding,
   ) {
-    return Container(
-      height: barHeight,
-      margin: EdgeInsets.only(
-        top: marginSize,
-        right: marginSize,
-        left: marginSize,
-      ),
-      child: Row(
-        children: <Widget>[
-          if (chewieController.allowFullScreen)
-            _buildExpandButton(
-              backgroundColor,
-              iconColor,
-              barHeight,
-              buttonPadding,
-            ),
-          const Spacer(),
-          if (chewieController.allowMuting)
-            _buildMuteButton(
-              controller,
-              backgroundColor,
-              iconColor,
-              barHeight,
-              buttonPadding,
-            ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 48),
+      child: Container(
+        height: barHeight,
+        margin: EdgeInsets.only(
+          top: marginSize,
+          right: marginSize,
+          left: marginSize,
+        ),
+        child: Row(
+          children: <Widget>[
+            if (chewieController.allowFullScreen)
+              _buildExpandButton(
+                backgroundColor,
+                iconColor,
+                barHeight,
+                buttonPadding,
+              ),
+            const Spacer(),
+            if (chewieController.allowMuting)
+              _buildMuteButton(
+                controller,
+                backgroundColor,
+                iconColor,
+                barHeight,
+                buttonPadding,
+              ),
+          ],
+        ),
       ),
     );
   }
