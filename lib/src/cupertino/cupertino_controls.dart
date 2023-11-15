@@ -81,8 +81,8 @@ class _CupertinoControlsState extends State<CupertinoControls> with SingleTicker
     final backgroundColor = widget.backgroundColor;
     final iconColor = widget.iconColor;
     final orientation = MediaQuery.of(context).orientation;
-    final barHeight = orientation == Orientation.portrait ? 60.0 : 47.0;
-    final buttonPadding = orientation == Orientation.portrait ? 16.0 : 24.0;
+    final barHeight = orientation == Orientation.portrait ? 30.0 : 47.0;
+    final buttonPadding = orientation == Orientation.portrait ? kToolbarHeight : 24.0;
 
     return MouseRegion(
       onHover: (_) => _cancelAndRestartTimer(),
